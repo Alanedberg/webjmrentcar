@@ -130,9 +130,9 @@ window.addEventListener('scroll', () => {
 
 document.addEventListener("DOMContentLoaded", () => {
     const frases = [
-      "¡Recibe un 10% de descuento!",
-      "Entregas en aeropuerto",
-      "¡Atención personalizada 24/7!",
+      "¡10% de descuento!",
+      "Entregas en aeropuertos",
+      "¡Atención personalizada!",
       "Flota moderna y segura"
     ];
     const span = document.getElementById("ofertaTexto");
