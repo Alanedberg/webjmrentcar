@@ -76,6 +76,8 @@ body {
   align-items: center;
   gap: 0.25rem;
   transition: all 0.3s ease;
+
+
 }
 
 .btn-oferta:hover {
@@ -83,6 +85,15 @@ body {
   color: white;
   border-color: #dc3545;
 }
+
+@media (max-width: 576px) {
+  .btn-oferta {
+    font-size: 0.65rem; /* más pequeño */
+    padding: 0.2rem 0.5rem;
+        white-space: nowrap;
+  }
+}
+
 
 
 

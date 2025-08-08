@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
       "¡10% de descuento!",
       "Entregas en aeropuertos",
       "¡Atención personalizada!",
-      "Flota moderna y segura"
+      "Flota moderna"
     ];
     const span = document.getElementById("ofertaTexto");
     let i = 0; // frase actual
