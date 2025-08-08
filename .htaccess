@@ -1,0 +1,11 @@
+# Activa el motor de reescritura
+RewriteEngine On
+
+# Redirige requests sin extensión a su .html correspondiente, si existe
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^([^/]+)/?$ $1.html [L]
+
+# (Opcional) Redirige automáticamente /página.html → /página
+RewriteCond %{THE_REQUEST} \s/([^.]+)\.html [NC]
+RewriteRule ^ %1 [R=301,L]
