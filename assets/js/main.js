@@ -16,11 +16,11 @@ const activarContadores = () => {
     const actualizar = () => {
       const target = +contador.getAttribute('data-target');
       const actual = +contador.innerText;
-      const incremento = target / 50;
+      const incremento = target / 100;
 
       if (actual < target) {
         contador.innerText = Math.ceil(actual + incremento);
-        setTimeout(actualizar, 30);
+        setTimeout(actualizar, 60);
       } else {
         contador.innerText = target;
       }

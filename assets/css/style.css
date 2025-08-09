@@ -718,3 +718,110 @@ footer a:hover {
   transform: scale(1.03) rotate(-1deg);
   box-shadow: 0 12px 44px -10px #dc3545;
 }
+
+
+
+/* ========= Nosotros Pro ========= */
+.nosotros-pro {
+  position: relative;
+  background: #fff;
+}
+
+.nosotros-ribbon{
+  position: absolute; inset: 0 0 auto 0; height: 140px; z-index: 0;
+  background: radial-gradient(1200px 140px at 50% 0, rgba(220,53,69,.10), transparent 60%),
+              linear-gradient(180deg, rgba(0,0,0,0.015), transparent 60%);
+  pointer-events: none;
+}
+
+.nosotros-pro .container{ position: relative; z-index: 1; }
+
+/* Card principal */
+.card-nosotros{
+  background: #fff;
+  border: 1px solid #eef0f3;
+  border-radius: 18px;
+  padding: 1.5rem;
+  box-shadow: 0 18px 50px rgba(16,24,40,.06);
+}
+
+.card-nosotros__header{
+  display: flex; gap: .75rem; align-items: center;
+}
+.card-nosotros__header i{
+  color: #dc3545; font-size: 1.6rem;
+}
+
+/* Checklist */
+.checklist{ list-style: none; padding-left: 0; }
+.checklist li{
+  display: flex; align-items: start; gap: .6rem;
+  padding: .45rem 0;
+  color: #4b5563;
+}
+.checklist i{ color:#16a34a; margin-top: .2rem; }
+
+/* Mini stats */
+.mini-stat{
+  background: #fff; border: 1px solid #f0f2f4;
+  border-radius: 14px; padding: .9rem;
+  box-shadow: 0 10px 30px rgba(2,6,23,.05);
+}
+.mini-stat i{ color:#dc3545; font-size: 1.25rem; }
+.mini-stat .num{
+  font-weight: 800; font-size: 1.6rem; line-height: 1; margin: .15rem 0;
+}
+.mini-stat span{ font-size: .9rem; color:#6b7280; }
+
+/* Grid beneficios */
+.benefits-grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  background: #fff;
+}
+.benefit{
+  display: grid; grid-template-columns: 44px 1fr; gap: .8rem;
+  align-items: start;
+  background: #ffffff;
+  border: 1px solid #eef0f3;
+  border-radius: 14px;
+  padding: 1rem;
+  box-shadow: 0 10px 30px rgba(2,6,23,.05);
+}
+.benefit i{ font-size: 1.3rem; color:#dc3545; }
+
+.benefit h5{ margin: 0 0 .2rem; font-weight: 700; color:#1f2937; }
+.benefit p{ margin: 0; color:#6b7280; }
+
+/* Pills de valor */
+.value-pills{ display: flex; flex-wrap: wrap; gap: .5rem; }
+.pill{
+  display:inline-flex; align-items:center; gap:.4rem;
+  background:#fff0f1; color:#b4232c; border: 1px solid #ffd5d8;
+  padding:.45rem .7rem; border-radius:999px; font-weight:600; font-size:.85rem;
+}
+
+/* Responsive */
+@media (min-width: 992px){
+  .benefits-grid{ grid-template-columns: 1fr; }
+}
+@media (max-width: 576px){
+  .card-nosotros{ padding: 1.1rem; }
+  .mini-stat .num{ font-size: 1.4rem; }
+  .benefit{ grid-template-columns: 38px 1fr; }
+}
+.mini-stat .num {
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.1rem;
+  font-weight: 800;
+  font-size: 1.6rem;
+  line-height: 1;
+  margin: 0.15rem 0;
+}
+
+.mini-stat .plus {
+  font-weight: 800;
+}

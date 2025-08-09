@@ -12,62 +12,75 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-  <!-- AOS Animate on Scroll -->
+  <!-- AOS -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   <!-- Estilo personalizado -->
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="assets/img/icojmrentcar.ico" type="image/x-icon" />
-  <meta name="theme-color" content="#ffffff">
+  <meta name="theme-color" content="#ffffff" />
 
   <style>
-    html, body {
-      scroll-behavior: auto !important;
-      overflow-x: hidden;
-    }
+    html, body { scroll-behavior: auto !important; overflow-x: hidden; }
   </style>
 </head>
 
 <body>
-  <!-- Fondo decorativo -->
-  <div class="background-pattern"></div>
-  <div class="background-car"></div>
+  <!-- Fondos -->
+  <div class="background-gradient"></div>
+  <div class="bg-icons" aria-hidden="true">
+    <i class="bi bi-whatsapp"></i>
+    <i class="bi bi-telephone-fill"></i>
+    <i class="bi bi-geo-alt-fill"></i>
+    <i class="bi bi-car-front-fill"></i>
+    <i class="bi bi-whatsapp"></i>
+    <i class="bi bi-telephone-fill"></i>
+    <i class="bi bi-geo-alt-fill"></i>
+    <i class="bi bi-car-front-fill"></i>
+  </div>
 
   <main class="container-fluid d-flex justify-content-center p-3">
-    <div class="glass-card text-center" data-aos="fade-up" data-aos-duration="1000">
-      <!-- Logo y encabezado -->
+    <div class="glass-card text-center" data-aos="fade-up" data-aos-duration="900">
+      <!-- Header -->
       <header class="mb-3">
         <img src="assets/img/logo_jm_rent_car.webp" alt="JM Rent Car" class="logo img-fluid mb-2"
-             data-aos="fade-down" data-aos-delay="100" />
-        <h2 class="fw-bold text-dark mb-2" data-aos="fade-up" data-aos-delay="200">JM Rent Car</h2>
-        <p class="lead mb-0" data-aos="fade-up" data-aos-delay="300">Renta tu vehículo fácil, rápido y con la mejor atención 24/7.</p>
-        <span class="d-block mb-3 small fw-semibold" data-aos="fade-up" data-aos-delay="600">
-          <i class="fas fa-car text-danger  "></i> LA EXECELENCIA HECHA RENT CAR
+             data-aos="fade-down" data-aos-delay="80" />
+        <h2 class="fw-bold text-dark mb-1" data-aos="fade-up" data-aos-delay="160">JM Rent Car</h2>
+        <p class="lead mb-0" data-aos="fade-up" data-aos-delay="240">
+          Renta tu vehículo fácil, rápido y con la mejor atención 24/7.
+        </p>
+        <span class="badge-slogan" data-aos="zoom-in" data-aos-delay="320">
+          <i class="fas fa-car text-danger"></i> LA EXCELENCIA HECHA RENT CAR
         </span>
       </header>
 
-      <!-- Botones principales -->
+      <!-- Botones -->
       <div class="links-container mb-4">
-        <a href="https://wa.me/18094013761?text=¡Hola!%20Quiero%20reservar%20un%20vehículo%20con%20JM%20Rent%20Car." target="_blank"
-           class="btn-custom btn-wsp" data-aos="fade-up" data-aos-delay="700">
+        <a href="https://wa.me/18094013761?text=¡Hola!%20Quiero%20reservar%20un%20vehículo%20con%20JM%20Rent%20Car."
+           target="_blank" class="btn-custom btn-wsp" data-aos="fade-up" data-aos-delay="360">
           <i class="bi bi-whatsapp"></i> Reserva por WhatsApp
         </a>
+
         <a href="https://instagram.com/jmrentcar" target="_blank"
-           class="btn-custom btn-ig" data-aos="fade-up" data-aos-delay="800">
+           class="btn-custom btn-ig" data-aos="fade-up" data-aos-delay="420">
           <i class="bi bi-instagram"></i> Síguenos en Instagram
         </a>
+
         <a href="https://facebook.com/share/16pBdf881x/?mibextid=wwXIfr" target="_blank"
-           class="btn-custom btn-fb" data-aos="fade-up" data-aos-delay="900">
+           class="btn-custom btn-fb" data-aos="fade-up" data-aos-delay="480">
           <i class="bi bi-facebook"></i> Visítanos en Facebook
         </a>
+
         <a href="https://www.tiktok.com/@jmrentcar" target="_blank"
-           class="btn-custom btn-tt" data-aos="fade-up" data-aos-delay="1000">
+           class="btn-custom btn-tt" data-aos="fade-up" data-aos-delay="540">
           <i class="bi bi-tiktok"></i> Míranos en TikTok
         </a>
+
         <a href="https://jmrentcar.com" target="_blank"
-           class="btn-custom btn-web" data-aos="fade-up" data-aos-delay="1100">
+           class="btn-custom btn-web" data-aos="fade-up" data-aos-delay="600">
           <i class="bi bi-globe"></i> Página web oficial
         </a>
-        <div class="d-grid gap-3 mt-4" data-aos="fade-up" data-aos-delay="1200">
+
+        <div class="d-grid gap-3 mt-4" data-aos="fade-up" data-aos-delay="660">
           <button class="btn-custom btn-photos" data-bs-toggle="modal" data-bs-target="#photosModal">
             <i class="bi bi-images"></i> Ver fotos de la flotilla
           </button>
@@ -75,7 +88,7 @@
       </div>
 
       <!-- Mapa -->
-      <div class="map-container" data-aos="zoom-in" data-aos-delay="1300">
+      <div class="map-container" data-aos="zoom-in" data-aos-delay="720">
         <h5 class="mb-3">
           <i class="bi bi-geo-alt-fill location-icon"></i>
           <span class="location-text">Ubicación del negocio</span>
@@ -92,7 +105,7 @@
   </main>
 
   <!-- WhatsApp Flotante -->
-  <a href="https://wa.me/18098015257" class="whatsapp-btn" target="_blank">
+  <a href="https://wa.me/18098015257" class="whatsapp-btn" target="_blank" aria-label="Abrir WhatsApp">
     <i class="fab fa-whatsapp"></i>
     <span class="tooltip-whatsapp">¿Tienes dudas? ¡Escríbenos!</span>
   </a>
@@ -107,9 +120,7 @@
         </div>
         <div class="modal-body">
           <div id="businessCarousel" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-              <!-- Las fotos se agregan dinámicamente con carrussel.js -->
-            </div>
+            <div class="carousel-inner"><!-- se llena con js/carrussel.js --></div>
             <button class="carousel-control-prev" type="button" data-bs-target="#businessCarousel" data-bs-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Anterior</span>
@@ -124,18 +135,19 @@
     </div>
   </div>
 
-  <!-- JS: Bootstrap, WhatsApp, Carrusel, AOS -->
+  <!-- JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/whatsapp.js"></script>
   <script src="js/carrussel.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init({
-      once: true,
-      startEvent: 'DOMContentLoaded',
-      delay: 0,
-      offset: 0,
-      duration: 800,
+    AOS.init({ once: true, startEvent: 'DOMContentLoaded', duration: 800 });
+    // Mostrar el globo de WhatsApp unos segundos
+    window.addEventListener('load', () => {
+      const tip = document.querySelector('.tooltip-whatsapp');
+      if (!tip) return;
+      tip.classList.add('show');
+      setTimeout(() => tip.classList.remove('show'), 3500);
     });
   </script>
 </body>

@@ -34,22 +34,17 @@
   "Chevrolet-Tahoe-2021-Full": [
     "1.webp",
     "2.webp",
-    "3.webp",
-    "4.webp"
+    "3.webp"
   ],
   "ford-explorer-2017": [
     "1.webp",
     "2.webp",
     "3.webp",
-    "4.webp"
+    "4.webp",
+    "5.webp"
   ],
   "honda-crv-2016": [
-    "1.webp",
-    "2.webp",
-    "3.webp",
-    "4.webp",
-    "5.webp",
-    "6.webp"
+    "1.webp"
   ],
   "honda-crv-2018": [
     "1.webp",
@@ -62,8 +57,7 @@
     "2.webp",
     "3.webp",
     "4.webp",
-    "5.webp",
-    "6.webp"
+    "5.webp"
   ],
   "honda-crv-2018-3": [
     "1.webp",
@@ -111,23 +105,14 @@
   ],
   "jeap-gladiador-2020": [
     "1.webp",
-    "2.webp",
-    "3.webp",
-    "4.webp",
-    "5.webp"
+    "2.webp"
   ],
   "jeap-rubicon-2018": [
     "1.webp",
-    "2.webp",
-    "3.webp",
-    "4.webp",
-    "5.webp"
+    "2.webp"
   ],
   "jeep-cherokee-2017": [
-    "1.webp",
-    "2.webp",
-    "3.webp",
-    "4.webp"
+    "1.webp"
   ],
   "jeep-cherokee-2018": [
     "1.webp",
@@ -150,10 +135,7 @@
     "2.webp",
     "3.webp",
     "4.webp",
-    "5.webp",
-    "6.webp",
-    "7.webp",
-    "8.webp"
+    "5.webp"
   ],
   "mercedes-gle-2018": [
     "1.webp",
@@ -162,7 +144,8 @@
     "4.webp",
     "5.webp",
     "6.webp",
-    "7.webp"
+    "7.webp",
+    "8.webp"
   ],
   "range-rover-sport-2018": [
     "1.webp",
@@ -174,7 +157,8 @@
   "toyota-4runner": [
     "1.webp",
     "2.webp",
-    "3.webp"
+    "3.webp",
+    "4.webp"
   ],
   "toyota-highlander-2018": [
     "1.webp",
@@ -188,9 +172,6 @@
     "9.webp"
   ],
   "toyota-hilux-2020": [
-    "1.webp",
-    "2.webp",
-    "3.webp",
-    "4.webp"
+    "1.webp"
   ]
 }
