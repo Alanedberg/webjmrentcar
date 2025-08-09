@@ -1,7 +1,7 @@
 import qrcode
 
 # URL que deseas codificar
-url = "https://espinalrentcar.com/contactos.html"  # Puedes cambiar esta URL
+url = "https://jmrentcar.com/contactos"  # Puedes cambiar esta URL
 
 # Crear el objeto QR
 qr = qrcode.QRCode(
@@ -18,6 +18,6 @@ qr.make(fit=True)
 img = qr.make_image(fill_color="black", back_color="white")
 
 # Guardar como archivo PNG
-img.save("EspinalRentCar_contactos.png")
+img.save("JMRentCar_contactos.png")
 
 print("✅ QR generado correctamente: qr_tusitio.png")
