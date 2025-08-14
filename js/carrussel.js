@@ -22,7 +22,8 @@ const businessPhotos = [
   'img/negocio/range-rover-sport-2018.webp',
   'img/negocio/toyota-4runner.webp',
   'img/negocio/toyota-highlander-2018.webp',
-  'img/negocio/toyota-hilux-2020.webp'
+  'img/negocio/toyota-hilux-2020.webp',
+  'img/negocio/Maserati-2020.webp',
 ];
 
 
