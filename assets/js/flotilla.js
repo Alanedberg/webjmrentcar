@@ -12,6 +12,17 @@ const vehiculos = [
       carpeta: "mercedes-gle-2018"
     },
       {
+      nombre: "Maserati 2020",
+      precioAntes: 240,
+      precioActual: 220,
+      pasajeros: 5,
+      caracteristicas: "Techo panoramico y diferentes modos de manejo",
+      ac: true,
+      transmision: "Automática",
+      categoria: "Jeepeta",
+      carpeta: "Maserati-2020"
+    },
+      {
       nombre: "Chevrolet Tahoe 2021 Full",
       precioAntes: 260,
       precioActual: 230,

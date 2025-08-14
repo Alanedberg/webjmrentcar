@@ -20,7 +20,7 @@ if USE_TRASH:
         send2trash = None
 
 def gather_pngs(base: Path):
-    return list(base.rglob("*.png"))  # busca recursivamente archivos .png
+    return list(base.rglob("*.jpg"))  # busca recursivamente archivos .png
 
 def delete_file(p: Path):
     if send2trash:

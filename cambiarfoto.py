@@ -61,7 +61,7 @@ def convert_png_to_webp(png_path: Path, quality: int, lossless: bool,
         print(f"[ERROR] al procesar '{png_path}': {e}")
 
 def gather_pngs(base: Path):
-    return list(base.rglob("*.png"))
+    return list(base.rglob("*.jpg"))
 
 def main():
     parser = argparse.ArgumentParser(
