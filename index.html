@@ -136,9 +136,25 @@
     <h2 class="text-center mb-2">¿Por qué elegir <span class="text-danger">JM Rent Car</span>?</h2>
     <p class="text-center text-secondary mb-4">Precios claros, soporte real 24/7 y entregas donde nos necesites.</p>
 
-    <div class="row g-4 align-items-stretch">
-      <!-- Card principal con CTA -->
-      <div class="col-12 col-lg-6">
+    <!-- Fila principal: Foto (primero) + Card con contadores -->
+    <div class="row g-4 align-items-center">
+      <!-- FOTO DEL REPRESENTANTE (primero en móvil y escritorio) -->
+      <div class="col-12 col-lg-5 order-1" data-aos="zoom-in">
+        <div class="rep-hero">
+          <div class="rep-photo-wrapper">
+            <img src="assets/img/representante1.jpg" alt="Representante JM Rent Car" class="rep-photo" />
+            <span class="rep-badge"><i class="fas fa-headset me-1"></i> Jose Miguel Duran</span>
+            <span class="shine"></span>
+          </div>
+          <div class="rep-info text-center mt-3">
+            <h5 class="mb-0"></h5>
+            <small class="text-muted">CEO JM Rent Car</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD con CTA + CONTADORES -->
+      <div class="col-12 col-lg-7 order-2">
         <div class="card-nosotros h-100">
           <div class="card-nosotros__header">
             <i class="fas fa-shield-alt"></i>
@@ -146,7 +162,7 @@
           </div>
 
           <ul class="checklist mt-3 mb-4">
-            <li><i class="fas fa-check"></i>Asistencia en ruta</li>
+            <li><i class="fas fa-check"></i> Asistencia en ruta</li>
             <li><i class="fas fa-check"></i> Entrega y recogida en aeropuerto</li>
             <li><i class="fas fa-check"></i> Atención inmediata 24/7 por WhatsApp</li>
             <li><i class="fas fa-check"></i> Contratos transparentes (sin letra pequeña)</li>
@@ -156,19 +172,21 @@
           <div class="row text-center g-3">
             <div class="col-6">
               <div class="mini-stat">
-  <i class="fas fa-car"></i>
-  <div class="num"><span class="plus">+</span><span class="contador" data-target="50">0</span></div>
-  <span>Vehículos</span>
-</div>
-
+                <i class="fas fa-car"></i>
+                <div class="num">
+                  <span class="plus">+</span><span class="contador" data-target="50">0</span>
+                </div>
+                <span>Vehículos</span>
+              </div>
             </div>
             <div class="col-6">
               <div class="mini-stat">
-  <i class="fas fas fa-users"></i>
-  <div class="num"><span class="plus">+</span><span class="contador" data-target="1200">0</span></div>
-  <span>Entregas</span>
-</div>
-
+                <i class="fas fa-users"></i>
+                <div class="num">
+                  <span class="plus">+</span><span class="contador" data-target="1200">0</span>
+                </div>
+                <span>Entregas</span>
+              </div>
             </div>
           </div>
 
@@ -178,9 +196,11 @@
           </a>
         </div>
       </div>
+    </div>
 
-      <!-- Grid de beneficios / pills -->
-      <div class="col-12 col-lg-6">
+    <!-- Fila secundaria: Beneficios / Pills -->
+    <div class="row g-4 mt-1">
+      <div class="col-12">
         <div class="benefits-grid h-100">
           <div class="benefit">
             <i class="fas fa-tags"></i>
@@ -197,13 +217,12 @@
             </div>
           </div>
           <div class="benefit">
-  <i class="fas fa-mobile-alt"></i>
-  <div>
-    <h5>Reserva en minutos</h5>
-    <p class="mb-0">Confirma tu vehículo rápido y sin complicaciones.</p>
-  </div>
-</div>
-
+            <i class="fas fa-mobile-alt"></i>
+            <div>
+              <h5>Reserva en minutos</h5>
+              <p class="mb-0">Confirma tu vehículo rápido y sin complicaciones.</p>
+            </div>
+          </div>
           <div class="benefit">
             <i class="fas fa-location-dot"></i>
             <div>
@@ -212,11 +231,9 @@
             </div>
           </div>
 
-          <!-- Pills de valor -->
           <div class="value-pills mt-2">
             <span class="pill"><i class="fas fa-plane"></i> Aeropuerto</span>
             <span class="pill"><i class="fas fa-headset"></i> Soporte 24/7</span>
-
           </div>
         </div>
       </div>
