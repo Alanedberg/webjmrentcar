@@ -1,7 +1,7 @@
 import qrcode
 
 # URL que deseas codificar
-url = "https://jmrentcar.com/contactos"  # Puedes cambiar esta URL
+url = "https://ofv.edenorte.com.do:8181/SupervisionOsRestClient/app/login.xhtml"  # Puedes cambiar esta URL
 
 # Crear el objeto QR
 qr = qrcode.QRCode(
@@ -18,6 +18,6 @@ qr.make(fit=True)
 img = qr.make_image(fill_color="black", back_color="white")
 
 # Guardar como archivo PNG
-img.save("JMRentCar_contactos.png")
+img.save("supervisores_edenorte.png")
 
 print("✅ QR generado correctamente: qr_tusitio.png")

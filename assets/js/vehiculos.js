@@ -295,8 +295,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalFotos = modalEl ? new bootstrap.Modal(modalEl, { backdrop: true, keyboard: true }) : null;
   const contenedorFotos = document.getElementById("contenedorFotosVehiculo");
   const modalTitulo = document.getElementById("modalFotosLabel");
-  const item = document.createElement("div");
-item.className = "carousel-item";
 
   function renderGrid(categoria) {
     if (!gridFlotilla) return;
@@ -304,60 +302,62 @@ item.className = "carousel-item";
     const lista = vehiculos.filter(v => categoria === "todos" || v.categoria === categoria);
     lista.forEach(v => {
       const col = document.createElement("div");
-      col.className = "col-12 col-md-6 col-lg-4";
+      col.className = "col-12 col-sm-6 col-lg-4 d-flex";
 
-      const detalles = [];
-      if (v.caracteristicas && v.caracteristicas.toString().trim() !== "") {
-        detalles.push(`<li class="mb-1"><i class="fas fa-info-circle me-2 text-danger"></i> ${v.caracteristicas}</li>`);
-      }
-      detalles.push(`<li class="mb-1"><i class="fas fa-users me-2 text-danger"></i> ${v.pasajeros} pasajero${v.pasajeros === 1 ? "" : "s"}</li>`);
-      detalles.push(`<li class="mb-1"><i class="fas fa-snowflake me-2 text-primary"></i> ${v.ac ? "A/C" : "Sin A/C"}</li>`);
-      detalles.push(`<li><i class="fas fa-cogs me-2 text-secondary"></i> ${v.transmision}</li>`);
-      
-item.innerHTML = `
-  <div class="d-flex justify-content-center">
-    <div class="card vehiculo card-glass card-float overflow-visible" style="width: 22rem;" data-aos="fade-up">
-      <div class="position-relative overflow-visible">
-        <img src="assets/img/vehiculos/${v.carpeta}/1.webp" class="card-img-top rounded-top" alt="${v.nombre}" />
-        ${v.descuento > 0 ? `
-          <span class="badge badge-descuento position-absolute top-0 start-0 m-2">-${v.descuento}%</span>
-          <div class="bg-danger text-white px-3 py-1 position-absolute top-0 end-0 rounded-bottom-start shadow-sm">
-            ¡Oferta!
-          </div>` : ""
-        }
-        ${v.categoria ? `
-          <span class="badge-categoria position-absolute top-0 start-50 translate-middle-x mt-2">${v.categoria.toUpperCase()}</span>
-        ` : ""}
-      </div>
-      <div class="card-body d-flex flex-column">
-        <h5 class="card-title fw-semibold mb-2">${v.nombre}</h5>
-        <div class="bg-light border p-2 rounded d-inline-block mb-2">
-          <del class="text-muted">USD$${v.precioAntes}</del>
-          <span class="fw-bold text-success ms-2">USD$${v.precioActual}/día</span>
+      const catLabel = { 'Jeepeta': 'Jeepeta', 'carro': 'Carro', 'camioneta': 'Camioneta' }[v.categoria] || v.categoria;
+      const pasLabel = `Disponibilidad: ${v.pasajeros} personas`;
+
+      col.innerHTML = `
+        <div class="card-vehiculo-moderna w-100">
+          <div class="card-img-wrapper">
+            <img src="assets/img/vehiculos/${v.carpeta}/1.webp"
+                 class="card-main-img" alt="${v.nombre}"
+                 onerror="this.src='assets/img/icojmrentcar.ico'" />
+            ${v.descuento > 0 ? `<span class="badge-oferta-card">-${v.descuento}% OFF</span>` : ''}
+          </div>
+          <div class="card-thumbnails">
+            <img src="assets/img/vehiculos/${v.carpeta}/2.webp"
+                 onerror="this.src='assets/img/vehiculos/${v.carpeta}/1.webp'"
+                 onclick="verFotos('${v.nombre}','${v.carpeta}')" alt="foto 2" />
+            <img src="assets/img/vehiculos/${v.carpeta}/3.webp"
+                 onerror="this.src='assets/img/vehiculos/${v.carpeta}/1.webp'"
+                 onclick="verFotos('${v.nombre}','${v.carpeta}')" alt="foto 3" />
+            <img src="assets/img/vehiculos/${v.carpeta}/4.webp"
+                 onerror="this.src='assets/img/vehiculos/${v.carpeta}/1.webp'"
+                 onclick="verFotos('${v.nombre}','${v.carpeta}')" alt="foto 4" />
+          </div>
+          <div class="card-vehiculo-body">
+            <div class="card-ubicacion">
+              <i class="bi bi-geo-alt-fill"></i>
+              <div class="card-ubicacion-texto">
+                <small>Ubicación del Vehículo</small>
+                <span>Santiago, R.D.</span>
+              </div>
+            </div>
+            <div class="card-vehiculo-nombre-row">
+              <h5 class="card-vehiculo-title">${v.nombre}</h5>
+              <span class="badge-activo">Activo</span>
+            </div>
+            <p class="card-vehiculo-sub">${catLabel} &bull; ${v.transmision}</p>
+            <span class="badge-disponibilidad">
+              <i class="bi bi-people-fill"></i> ${pasLabel}
+            </span>
+            <div class="card-precio-row">
+              ${v.descuento > 0 ? `<span class="card-precio-antes">$${v.precioAntes}</span>` : ''}
+              <span class="card-precio-actual">$${v.precioActual}</span>
+              <span class="card-precio-dia">/día</span>
+            </div>
+            <div class="card-acciones">
+              <button class="btn-ver-fotos" onclick="verFotos('${v.nombre}','${v.carpeta}')">
+                <i class="bi bi-images"></i> Fotos
+              </button>
+              <button class="btn-reservar-ws" onclick="abrirReserva('${v.nombre}', ${v.precioActual})">
+                <i class="fab fa-whatsapp"></i> Reservar
+              </button>
+            </div>
+          </div>
         </div>
-        <ul class="list-unstyled small mb-3 text-muted">
-          ${v.caracteristicas ? `<li class="mb-1"><i class="fas fa-info-circle me-2 text-danger"></i> ${v.caracteristicas}</li>` : ""}
-          <li class="mb-1"><i class="fas fa-users me-2 text-danger"></i> ${v.pasajeros} pasajero${v.pasajeros === 1 ? "" : "s"}</li>
-          <li class="mb-1"><i class="fas fa-snowflake me-2 text-primary"></i> ${v.ac ? "A/C" : "Sin A/C"}</li>
-          <li><i class="fas fa-cogs me-2 text-secondary"></i> ${v.transmision}</li>
-        </ul>
-        <div class="mt-auto d-flex gap-2">
-          <button class="btn btn-outline-danger w-50" onclick="verFotos('${v.nombre}', '${v.carpeta}')">
-            <i class="fas fa-images me-1"></i> Fotos
-          </button>
-          <a href="https://wa.me/18094013761?text=${encodeURIComponent(
-            `Hola, quiero reservar el ${v.nombre}. Vi que está en oferta por USD$${v.precioActual} por día. ¿Está disponible?`
-          )}" target="_blank" class="btn btn-ws w-50">
-            <i class="fab fa-whatsapp me-1"></i> Reservar
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-`;
-
-
-
+      `;
       gridFlotilla.appendChild(col);
     });
   }
@@ -369,49 +369,68 @@ item.innerHTML = `
       const activo = i === 0 ? "active" : "";
       const item = document.createElement("div");
       item.className = `carousel-item ${activo}`;
-     item.innerHTML = `
-  <div class="d-flex justify-content-center">
-    <div class="card vehiculo card-glass card-float" style="width: 22rem;" data-aos="fade-up">
-      <div class="position-relative">
-        <img src="assets/img/vehiculos/${v.carpeta}/1.webp" class="card-img-top rounded-top" alt="${v.nombre}" />
-        ${v.descuento > 0 ? `
-          <span class="badge badge-descuento position-absolute top-0 start-0 m-2">-${v.descuento}%</span>
-          <div class="bg-danger text-white px-3 py-1 position-absolute top-0 end-0 rounded-bottom-start shadow-sm">
-            ¡Oferta!
-          </div>` : ""}
-        <span class="position-absolute top-0 end-0 m-2 badge bg-dark text-uppercase shadow-sm">${v.categoria}</span>
-      </div>
-      <div class="card-body d-flex flex-column">
-        <h5 class="card-title fw-semibold mb-2">${v.nombre}</h5>
-        <div class="bg-light border p-2 rounded d-inline-block mb-2">
-          <del class="text-muted">USD$${v.precioAntes}</del>
-          <span class="fw-bold text-success ms-2">USD$${v.precioActual}/día</span>
-        </div>
-        <ul class="list-unstyled small mb-3 text-muted">
-          ${v.caracteristicas ? `<li class="mb-1"><i class="fas fa-info-circle me-2 text-danger"></i> ${v.caracteristicas}</li>` : ""}
-          <li class="mb-1"><i class="fas fa-users me-2 text-danger"></i> ${v.pasajeros} pasajero${v.pasajeros === 1 ? "" : "s"}</li>
-          <li class="mb-1"><i class="fas fa-snowflake me-2 text-primary"></i> ${v.ac ? "A/C" : "Sin A/C"}</li>
-          <li><i class="fas fa-cogs me-2 text-secondary"></i> ${v.transmision}</li>
-        </ul>
-        <div class="mt-auto d-flex gap-2">
-          <button class="btn btn-outline-danger w-50" onclick="verFotos('${v.nombre}', '${v.carpeta}')">
-            <i class="fas fa-images me-1"></i> Fotos
-          </button>
-          <a href="https://wa.me/18094013761?text=${encodeURIComponent(
-            `Hola, quiero reservar el ${v.nombre}. Vi que está en oferta por USD$${v.precioActual} por día. ¿Está disponible?`
-          )}" target="_blank" class="btn btn-ws w-50">
-            <i class="fab fa-whatsapp me-1"></i> Reservar
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-`;
 
+      const catLabel = { 'Jeepeta': 'Jeepeta', 'carro': 'Carro', 'camioneta': 'Camioneta' }[v.categoria] || v.categoria;
 
+      item.innerHTML = `
+        <div class="d-flex justify-content-center py-3">
+          <div class="card-vehiculo-moderna" style="width: min(95%, 380px)">
+            <div class="card-img-wrapper">
+              <img src="assets/img/vehiculos/${v.carpeta}/1.webp"
+                   class="card-main-img" alt="${v.nombre}"
+                   onerror="this.src='assets/img/icojmrentcar.ico'" />
+              ${v.descuento > 0 ? `<span class="badge-oferta-card">-${v.descuento}% OFF</span>` : ''}
+            </div>
+            <div class="card-thumbnails">
+              <img src="assets/img/vehiculos/${v.carpeta}/2.webp"
+                   onerror="this.src='assets/img/vehiculos/${v.carpeta}/1.webp'"
+                   onclick="verFotos('${v.nombre}','${v.carpeta}')" alt="foto 2" />
+              <img src="assets/img/vehiculos/${v.carpeta}/3.webp"
+                   onerror="this.src='assets/img/vehiculos/${v.carpeta}/1.webp'"
+                   onclick="verFotos('${v.nombre}','${v.carpeta}')" alt="foto 3" />
+              <img src="assets/img/vehiculos/${v.carpeta}/4.webp"
+                   onerror="this.src='assets/img/vehiculos/${v.carpeta}/1.webp'"
+                   onclick="verFotos('${v.nombre}','${v.carpeta}')" alt="foto 4" />
+            </div>
+            <div class="card-vehiculo-body">
+              <div class="card-ubicacion">
+                <i class="bi bi-geo-alt-fill"></i>
+                <div class="card-ubicacion-texto">
+                  <small>Ubicación del Vehículo</small>
+                  <span>Santiago, R.D.</span>
+                </div>
+              </div>
+              <div class="card-vehiculo-nombre-row">
+                <h5 class="card-vehiculo-title">${v.nombre}</h5>
+                <span class="badge-activo">Activo</span>
+              </div>
+              <p class="card-vehiculo-sub">${catLabel} &bull; ${v.transmision}</p>
+              <span class="badge-disponibilidad">
+                <i class="bi bi-people-fill"></i> Disponibilidad: ${v.pasajeros} personas
+              </span>
+              <div class="card-precio-row">
+                ${v.descuento > 0 ? `<span class="card-precio-antes">$${v.precioAntes}</span>` : ''}
+                <span class="card-precio-actual">$${v.precioActual}</span>
+                <span class="card-precio-dia">/día</span>
+              </div>
+              <div class="card-acciones">
+                <button class="btn-ver-fotos" onclick="verFotos('${v.nombre}','${v.carpeta}')">
+                  <i class="bi bi-images"></i> Fotos
+                </button>
+                <a href="https://wa.me/18094013761?text=${encodeURIComponent(
+                  `Hola, quiero reservar el ${v.nombre} por USD$${v.precioActual}/día. ¿Está disponible?`
+                )}" target="_blank" class="btn-reservar-ws">
+                  <i class="fab fa-whatsapp"></i> Reservar
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
       contenedorCarrusel.appendChild(item);
     });
   }
+
 
   if (filterButtons && filterButtons.length) {
     filterButtons.forEach(btn => {
