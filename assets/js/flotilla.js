@@ -306,7 +306,7 @@ document.addEventListener("DOMContentLoaded", () => {
       ac: true,
       transmision: "Automática",
       categoria: "Jeepeta",
-      carpeta: "honda_odyssey_2021"
+      carpeta: "honda-odyssey-2021"
     }
   ];
   // calcular descuento real y no negativo
