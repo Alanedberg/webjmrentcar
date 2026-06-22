@@ -345,18 +345,18 @@ document.addEventListener("DOMContentLoaded", () => {
           <div class="card-img-wrapper">
             <img src="assets/img/vehiculos/${v.carpeta}/1.webp"
                  class="card-main-img" alt="${v.nombre}"
-                 onerror="this.src='assets/img/icojmrentcar.ico'" />
+                 onerror="this.onerror=null; this.src='assets/img/icojmrentcar.ico'" />
             ${v.descuento > 0 ? `<span class="badge-oferta-card">-${v.descuento}% OFF</span>` : ''}
           </div>
           <div class="card-thumbnails">
             <img src="assets/img/vehiculos/${v.carpeta}/2.webp"
-                 onerror="this.src='assets/img/vehiculos/${v.carpeta}/1.webp'"
+                 onerror="this.onerror=null; this.src='assets/img/vehiculos/${v.carpeta}/1.webp'"
                  onclick="verFotos('${v.nombre}','${v.carpeta}')" alt="foto 2" />
             <img src="assets/img/vehiculos/${v.carpeta}/3.webp"
-                 onerror="this.src='assets/img/vehiculos/${v.carpeta}/1.webp'"
+                 onerror="this.onerror=null; this.src='assets/img/vehiculos/${v.carpeta}/1.webp'"
                  onclick="verFotos('${v.nombre}','${v.carpeta}')" alt="foto 3" />
             <img src="assets/img/vehiculos/${v.carpeta}/4.webp"
-                 onerror="this.src='assets/img/vehiculos/${v.carpeta}/1.webp'"
+                 onerror="this.onerror=null; this.src='assets/img/vehiculos/${v.carpeta}/1.webp'"
                  onclick="verFotos('${v.nombre}','${v.carpeta}')" alt="foto 4" />
           </div>
           <div class="card-vehiculo-body">
@@ -411,18 +411,18 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="card-img-wrapper">
               <img src="assets/img/vehiculos/${v.carpeta}/1.webp"
                    class="card-main-img" alt="${v.nombre}"
-                   onerror="this.src='assets/img/icojmrentcar.ico'" />
+                   onerror="this.onerror=null; this.src='assets/img/icojmrentcar.ico'" />
               ${v.descuento > 0 ? `<span class="badge-oferta-card">-${v.descuento}% OFF</span>` : ''}
             </div>
             <div class="card-thumbnails">
               <img src="assets/img/vehiculos/${v.carpeta}/2.webp"
-                   onerror="this.src='assets/img/vehiculos/${v.carpeta}/1.webp'"
+                   onerror="this.onerror=null; this.src='assets/img/vehiculos/${v.carpeta}/1.webp'"
                    onclick="verFotos('${v.nombre}','${v.carpeta}')" alt="foto 2" />
               <img src="assets/img/vehiculos/${v.carpeta}/3.webp"
-                   onerror="this.src='assets/img/vehiculos/${v.carpeta}/1.webp'"
+                   onerror="this.onerror=null; this.src='assets/img/vehiculos/${v.carpeta}/1.webp'"
                    onclick="verFotos('${v.nombre}','${v.carpeta}')" alt="foto 3" />
               <img src="assets/img/vehiculos/${v.carpeta}/4.webp"
-                   onerror="this.src='assets/img/vehiculos/${v.carpeta}/1.webp'"
+                   onerror="this.onerror=null; this.src='assets/img/vehiculos/${v.carpeta}/1.webp'"
                    onclick="verFotos('${v.nombre}','${v.carpeta}')" alt="foto 4" />
             </div>
             <div class="card-vehiculo-body">
