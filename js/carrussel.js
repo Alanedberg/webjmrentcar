@@ -24,15 +24,18 @@ const businessPhotos = [
   'img/negocio/toyota-highlander-2018.webp',
   'img/negocio/toyota-hilux-2020.webp',
   'img/negocio/Maserati-2020.webp',
+  'img/negocio/mercedes-Gle-350.webp',
+  'img/negocio/volkswagen-atlas-2022.webp',
+  'img/negocio/honda_odyssey_2021.webp'
 ];
 
 
 
 // Cuando el modal se muestre, carga las fotos
-document.getElementById('photosModal').addEventListener('shown.bs.modal', function() {
+document.getElementById('photosModal').addEventListener('shown.bs.modal', function () {
   const carouselInner = document.querySelector('#businessCarousel .carousel-inner');
   carouselInner.innerHTML = '';
-  
+
   businessPhotos.forEach((photo, index) => {
     const item = document.createElement('div');
     item.className = `carousel-item ${index === 0 ? 'active' : ''}`;

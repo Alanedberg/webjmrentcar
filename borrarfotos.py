@@ -4,7 +4,7 @@ import sys
 
 # --------- CONFIGURA AQUÍ (o pásalo como argumento) ----------
 # Si no pasas ruta por línea de comandos, se usará esta:
-PATH_TO_SCAN = Path(r"C:\\xampp\\htdocs\\JMRentCar\\assets\\img\\vehiculos")  # <- cambia esto
+PATH_TO_SCAN = Path(r"C:\\laragon\\www\\JMRentCar\\assets\\img\\vehiculos")  # <- cambia esto
 DRY_RUN = False           # True para simular sin borrar
 CONFIRM_BEFORE_DELETE = True  # pide confirmación
 USE_TRASH = True          # si tienes send2trash lo usará; si no, borra directo
@@ -20,7 +20,7 @@ if USE_TRASH:
         send2trash = None
 
 def gather_pngs(base: Path):
-    return list(base.rglob("*.jpg"))  # busca recursivamente archivos .png
+    return list(base.rglob("*.jpeg"))  # busca recursivamente archivos .png
 
 def delete_file(p: Path):
     if send2trash:

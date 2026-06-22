@@ -7,7 +7,7 @@ import sys
 import math
 
 # ====== CONFIGURA AQUÍ ======
-DEFAULT_SOURCE = Path(r"C:\\xampp\\htdocs\\JMRentCar\assets\\img\\vehiculos")  # <- cambia esto a tu carpeta
+DEFAULT_SOURCE = Path(r"C:\\laragon\\www\\JMRentCar\\assets\\img\\vehiculos")  # <- cambia esto a tu carpeta
 DEFAULT_QUALITY = 80
 DEFAULT_LOSSLESS = False
 DEFAULT_MAX_DIMENSION = 1200  # 0 = sin redimensionar
@@ -61,7 +61,7 @@ def convert_png_to_webp(png_path: Path, quality: int, lossless: bool,
         print(f"[ERROR] al procesar '{png_path}': {e}")
 
 def gather_pngs(base: Path):
-    return list(base.rglob("*.jpg"))
+    return list(base.rglob("*.jpeg"))
 
 def main():
     parser = argparse.ArgumentParser(

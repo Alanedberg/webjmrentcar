@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
       categoria: "Jeepeta",
       carpeta: "mercedes-gle-2018"
     },
-      {
+    {
       nombre: "Maserati 2020",
       precioAntes: 240,
       precioActual: 220,
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
       categoria: "Jeepeta",
       carpeta: "Maserati-2020"
     },
-      {
+    {
       nombre: "Chevrolet Tahoe 2021 Full",
       precioAntes: 260,
       precioActual: 230,
@@ -275,6 +275,39 @@ document.addEventListener("DOMContentLoaded", () => {
       transmision: "Automática",
       categoria: "carro",
       carpeta: "hyundai-lf-glp"
+    },
+    {
+      nombre: "Mercedes Gle-350",
+      precioAntes: 210,
+      precioActual: 200,
+      pasajeros: 5,
+      caracteristicas: "3 Filas de asientos",
+      ac: true,
+      transmision: "Automática",
+      categoria: "Jeepeta",
+      carpeta: "mercedes-Gle-350"
+    },
+    {
+      nombre: "Volkswagen-atlas-2022",
+      precioAntes: 120,
+      precioActual: 100,
+      pasajeros: 7,
+      caracteristicas: "",
+      ac: true,
+      transmision: "Automática",
+      categoria: "Jeepeta",
+      carpeta: "volkswagen-atlas-2022"
+    },
+    {
+      nombre: "Honda Odyssey 2021",
+      precioAntes: 100,
+      precioActual: 90,
+      pasajeros: 8,
+      caracteristicas: "",
+      ac: true,
+      transmision: "Automática",
+      categoria: "Jeepeta",
+      carpeta: "honda_odyssey_2021"
     }
   ];
 
@@ -418,8 +451,8 @@ document.addEventListener("DOMContentLoaded", () => {
                   <i class="bi bi-images"></i> Fotos
                 </button>
                 <a href="https://wa.me/18094013761?text=${encodeURIComponent(
-                  `Hola, quiero reservar el ${v.nombre} por USD$${v.precioActual}/día. ¿Está disponible?`
-                )}" target="_blank" class="btn-reservar-ws">
+        `Hola, quiero reservar el ${v.nombre} por USD$${v.precioActual}/día. ¿Está disponible?`
+      )}" target="_blank" class="btn-reservar-ws">
                   <i class="fab fa-whatsapp"></i> Reservar
                 </a>
               </div>

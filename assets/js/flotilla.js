@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-const vehiculos = [
+  const vehiculos = [
     {
       nombre: "Mercedes GLE-AMG Coupe 2018",
       precioAntes: 220,
@@ -11,7 +11,7 @@ const vehiculos = [
       categoria: "Jeepeta",
       carpeta: "mercedes-gle-2018"
     },
-      {
+    {
       nombre: "Maserati 2020",
       precioAntes: 240,
       precioActual: 220,
@@ -22,7 +22,7 @@ const vehiculos = [
       categoria: "Jeepeta",
       carpeta: "Maserati-2020"
     },
-      {
+    {
       nombre: "Chevrolet Tahoe 2021 Full",
       precioAntes: 260,
       precioActual: 230,
@@ -274,6 +274,39 @@ const vehiculos = [
       transmision: "Automática",
       categoria: "carro",
       carpeta: "hyundai-lf-glp"
+    },
+    {
+      nombre: "Mercedes Gle-350",
+      precioAntes: 200,
+      precioActual: 180,
+      pasajeros: 7,
+      caracteristicas: "3 Filas de asientos",
+      ac: true,
+      transmision: "Automática",
+      categoria: "Jeepeta",
+      carpeta: "mercedes-Gle-350"
+    },
+    {
+      nombre: "Volkswagen-atlas-2022",
+      precioAntes: 120,
+      precioActual: 100,
+      pasajeros: 7,
+      caracteristicas: "",
+      ac: true,
+      transmision: "Automática",
+      categoria: "Jeepeta",
+      carpeta: "volkswagen-atlas-2022"
+    },
+    {
+      nombre: "Honda Odyssey 2021",
+      precioAntes: 100,
+      precioActual: 90,
+      pasajeros: 8,
+      caracteristicas: "",
+      ac: true,
+      transmision: "Automática",
+      categoria: "Jeepeta",
+      carpeta: "honda_odyssey_2021"
     }
   ];
   // calcular descuento real y no negativo
@@ -291,18 +324,18 @@ const vehiculos = [
   const contenedorFotos = document.getElementById("contenedorFotosVehiculo");
   const modalTitulo = document.getElementById("modalFotosLabel");
 
-function renderGrid(categoria) {
-  grid.innerHTML = "";
-  const lista = vehiculos.filter(v => categoria === "todos" || v.categoria === categoria);
+  function renderGrid(categoria) {
+    grid.innerHTML = "";
+    const lista = vehiculos.filter(v => categoria === "todos" || v.categoria === categoria);
 
-  lista.forEach(v => {
-    const col = document.createElement("div");
-    col.className = "col-12 col-sm-6 col-lg-4 d-flex";
+    lista.forEach(v => {
+      const col = document.createElement("div");
+      col.className = "col-12 col-sm-6 col-lg-4 d-flex";
 
-    const catLabel = { 'Jeepeta': 'Jeepeta', 'carro': 'Carro', 'camioneta': 'Camioneta' }[v.categoria] || v.categoria;
-    const pasLabel = `Disponibilidad: ${v.pasajeros} personas`;
+      const catLabel = { 'Jeepeta': 'Jeepeta', 'carro': 'Carro', 'camioneta': 'Camioneta' }[v.categoria] || v.categoria;
+      const pasLabel = `Disponibilidad: ${v.pasajeros} personas`;
 
-    col.innerHTML = `
+      col.innerHTML = `
       <div class="card-vehiculo-moderna w-100">
 
         <!-- Imagen principal -->
@@ -372,11 +405,11 @@ function renderGrid(categoria) {
         </div>
       </div>
     `;
-    grid.appendChild(col);
-  });
+      grid.appendChild(col);
+    });
 
-  if (window.AOS) AOS.refresh();
-}
+    if (window.AOS) AOS.refresh();
+  }
 
 
   filterButtons.forEach(btn => {
@@ -384,112 +417,112 @@ function renderGrid(categoria) {
       filterButtons.forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
       renderGrid(btn.dataset.cat);
-      
+
     });
   });
 
   // renderizar todos al inicio
   renderGrid("todos");
 
-// función para mostrar galería
-window.verFotos = async (nombre, carpeta) => {
-  contenedorFotos.innerHTML = "";
-  modalTitulo.textContent = nombre;
+  // función para mostrar galería
+  window.verFotos = async (nombre, carpeta) => {
+    contenedorFotos.innerHTML = "";
+    modalTitulo.textContent = nombre;
 
-  // spinner temporal mientras carga
-  const spinner = document.createElement("div");
-  spinner.className = "text-center my-4";
-  spinner.innerHTML = `<div class="spinner-border" role="status"><span class="visually-hidden">Cargando...</span></div>`;
-  contenedorFotos.appendChild(spinner);
+    // spinner temporal mientras carga
+    const spinner = document.createElement("div");
+    spinner.className = "text-center my-4";
+    spinner.innerHTML = `<div class="spinner-border" role="status"><span class="visually-hidden">Cargando...</span></div>`;
+    contenedorFotos.appendChild(spinner);
 
-  const fragment = document.createDocumentFragment();
-  let cargadas = 0;
+    const fragment = document.createDocumentFragment();
+    let cargadas = 0;
 
-  // intento cargar manifest con timeout
-  let imagenesList = null;
-  try {
-    const controller = new AbortController();
-    const id = setTimeout(() => controller.abort(), 2000); // 2s timeout
-    const res = await fetch("assets/img/vehiculos/manifest.json", { signal: controller.signal });
-    clearTimeout(id);
-    if (res.ok) {
-      const manifest = await res.json();
-      if (manifest[carpeta] && Array.isArray(manifest[carpeta])) {
-        imagenesList = manifest[carpeta];
+    // intento cargar manifest con timeout
+    let imagenesList = null;
+    try {
+      const controller = new AbortController();
+      const id = setTimeout(() => controller.abort(), 2000); // 2s timeout
+      const res = await fetch("assets/img/vehiculos/manifest.json", { signal: controller.signal });
+      clearTimeout(id);
+      if (res.ok) {
+        const manifest = await res.json();
+        if (manifest[carpeta] && Array.isArray(manifest[carpeta])) {
+          imagenesList = manifest[carpeta];
+        }
+      }
+    } catch (e) {
+      console.warn("No se pudo cargar manifest (o se agotó), usando fallback.", e);
+    }
+
+    if (imagenesList) {
+      // cargar en paralelo pero conservar orden
+      const promises = imagenesList.map(async nombreImg => {
+        const ruta = `assets/img/vehiculos/${carpeta}/${nombreImg}`;
+        return new Promise(resolve => {
+          const img = new Image();
+          img.src = ruta;
+          img.alt = `${nombre} ${nombreImg}`;
+          img.className = "img-fluid rounded shadow-sm";
+          img.onload = () => {
+            cargadas++;
+            const div = document.createElement("div");
+            div.className = "col-md-4 mb-3";
+            div.appendChild(img);
+            fragment.appendChild(div);
+            resolve();
+          };
+          img.onerror = () => {
+            console.warn("Falló carga de imagen del manifest:", ruta);
+            resolve();
+          };
+        });
+      });
+      await Promise.all(promises);
+    } else {
+      // fallback secuencial con parada tras 3 fallos consecutivos
+      let consecutivosFallos = 0;
+      const STOP_MISSES = 3;
+      let i = 1;
+      while (consecutivosFallos < STOP_MISSES) {
+        const nombreImg = `${i}.webp`;
+        const ruta = `assets/img/vehiculos/${carpeta}/${nombreImg}`;
+        // esperar a que cargue o falle
+        await new Promise(resolve => {
+          const img = new Image();
+          img.src = ruta;
+          img.alt = `${nombre} ${i}`;
+          img.className = "img-fluid rounded shadow-sm";
+          img.onload = () => {
+            consecutivosFallos = 0;
+            cargadas++;
+            const div = document.createElement("div");
+            div.className = "col-md-4 mb-3";
+            div.appendChild(img);
+            fragment.appendChild(div);
+            resolve();
+          };
+          img.onerror = () => {
+            consecutivosFallos++;
+            resolve();
+          };
+        });
+        i++;
+        // seguridad: no se vaya a infinito (por si hay un bug)
+        if (i > 50) break;
       }
     }
-  } catch (e) {
-    console.warn("No se pudo cargar manifest (o se agotó), usando fallback.", e);
-  }
 
-  if (imagenesList) {
-    // cargar en paralelo pero conservar orden
-    const promises = imagenesList.map(async nombreImg => {
-      const ruta = `assets/img/vehiculos/${carpeta}/${nombreImg}`;
-      return new Promise(resolve => {
-        const img = new Image();
-        img.src = ruta;
-        img.alt = `${nombre} ${nombreImg}`;
-        img.className = "img-fluid rounded shadow-sm";
-        img.onload = () => {
-          cargadas++;
-          const div = document.createElement("div");
-          div.className = "col-md-4 mb-3";
-          div.appendChild(img);
-          fragment.appendChild(div);
-          resolve();
-        };
-        img.onerror = () => {
-          console.warn("Falló carga de imagen del manifest:", ruta);
-          resolve();
-        };
-      });
-    });
-    await Promise.all(promises);
-  } else {
-    // fallback secuencial con parada tras 3 fallos consecutivos
-    let consecutivosFallos = 0;
-    const STOP_MISSES = 3;
-    let i = 1;
-    while (consecutivosFallos < STOP_MISSES) {
-      const nombreImg = `${i}.webp`;
-      const ruta = `assets/img/vehiculos/${carpeta}/${nombreImg}`;
-      // esperar a que cargue o falle
-      await new Promise(resolve => {
-        const img = new Image();
-        img.src = ruta;
-        img.alt = `${nombre} ${i}`;
-        img.className = "img-fluid rounded shadow-sm";
-        img.onload = () => {
-          consecutivosFallos = 0;
-          cargadas++;
-          const div = document.createElement("div");
-          div.className = "col-md-4 mb-3";
-          div.appendChild(img);
-          fragment.appendChild(div);
-          resolve();
-        };
-        img.onerror = () => {
-          consecutivosFallos++;
-          resolve();
-        };
-      });
-      i++;
-      // seguridad: no se vaya a infinito (por si hay un bug)
-      if (i > 50) break;
+    // limpiar y mostrar resultados
+    contenedorFotos.innerHTML = "";
+    if (cargadas === 0) {
+      contenedorFotos.innerHTML = `<p class="text-center text-muted">No hay más fotos disponibles.</p>`;
+    } else {
+      contenedorFotos.appendChild(fragment);
     }
-  }
 
-  // limpiar y mostrar resultados
-  contenedorFotos.innerHTML = "";
-  if (cargadas === 0) {
-    contenedorFotos.innerHTML = `<p class="text-center text-muted">No hay más fotos disponibles.</p>`;
-  } else {
-    contenedorFotos.appendChild(fragment);
-  }
-
-  modalFotos.show();
-};
+    modalFotos.show();
+  };
 
 
   // inicializar AOS
